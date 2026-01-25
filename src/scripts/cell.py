@@ -5,7 +5,7 @@ from scripts.styles import Styles
 
 class Cell(QPushButton):
     game_over_signal = pyqtSignal()
-    run_bfs_sinal = pyqtSignal(tuple)
+    run_bfs_signal = pyqtSignal(tuple)
     cell_opened = pyqtSignal(object)     # count safe opened cells
     left_clicked = pyqtSignal(tuple)     # window handles left click (first-click-safe)
 
@@ -15,14 +15,14 @@ class Cell(QPushButton):
         is_mine: bool = False,
         is_open: bool = False,
         value: str = '0',
-        is_barier: bool = False,
+        is_barrier: bool = False,
     ) -> None:
         super().__init__()
         self.position = position
         self.is_mine = is_mine
         self.is_open = is_open
         self.value = value
-        self.is_barier = is_barier
+        self.is_barrier = is_barrier
         self.setStyleSheet(Styles.button_style_1.value)
 
     def mousePressEvent(self, event) -> None:
@@ -60,7 +60,7 @@ class Cell(QPushButton):
             return
 
         if self.value == '0':
-            self.run_bfs_sinal.emit(self.position)
+            self.run_bfs_signal.emit(self.position)
             return
 
         self.setText(self.value)

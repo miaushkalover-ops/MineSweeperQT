@@ -6,7 +6,6 @@ def dialog_decorator(title: str):
     def decorator(func):
         @wraps(func)
         def wrapper(self):
-            # run logic first (lose: reveal, win: nothing special)
             func(self)
 
             msg_box = QMessageBox()

@@ -1,6 +1,5 @@
 from enum import Enum
 
-
 class Styles(Enum):
     button_style_1 = (
         'QPushButton {\nbackground-color: #07942d;\nwidth: 55px;\nheight: 55px;\n'
@@ -15,7 +14,7 @@ class Styles(Enum):
         'border-radius: 5px;\n}'
         '\nQPushButton:disabled {\nbackground-color: #f01111;\n}'
     )
-    main_window_style = 'background-color: #3d3b39;'
+    main_window_style = 'background-color: #3d3b39'
     value_styles = {
         '1': button_style_1.replace('_____', '#07c3f1'),
         '2': button_style_1.replace('_____', '#12e8ab'),
